@@ -1,12 +1,18 @@
 package dominio;
 
-import java.io.Serial;
+import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Set;
 
-public class Dev {
+public class Dev extends BootCamp {
 
-    String nome;
-    String sobrenome;
-    Serial ID;
+    private String nome;
+    private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
+    private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
+
+    public Dev(){
+        
+    }
 
     public String getNome() {
         return nome;
@@ -15,16 +21,46 @@ public class Dev {
         this.nome = nome;
     }
 
-    public String getSobrenome() {
-        return sobrenome;
+    public void inscreverBootcamp(BootCamp bootcamp){}
+
+    public void progredir(){}
+
+    public void calcularTotalXp(){}
+
+    public Set<Conteudo> getConteudosInscritos(){
+        return this.conteudosInscritos();
     }
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
+    public void setConteudosInscritos(Set<Conteudo> conteudosInscritos){
+        this.conteudosInscritos = conteudosInscritos;
+    }
+
+    public Set<Conteudo> getConteudosConcluidos(){
+        return this.conteudosConcluidos();
+    }
+    public void setConteudosConcluidos(Set<Conteudo> conteudosConcluidos){
+        this.conteudosConcluidos = conteudosConcluidos;
     }
 
     @Override
-    public String toString() {        
-        return super.toString();
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj == null || getClass() != obj) return false;
+        Dev dev = (Dev) obj;
+        return 
+            Objects.equals(nome, dev.nome) && 
+            Objects.equals(conteudosInscritos, dev.conteudosInscritos) && 
+            Objects.equals(conteudosConcluidos, dev.conteudosConcluidos);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, conteudosInscritos, conteudosConcluidos);
+    }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
+    
     
 }
