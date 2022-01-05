@@ -28,7 +28,7 @@ public class Dev extends BootCamp {
     public void calcularTotalXp(){}
 
     public Set<Conteudo> getConteudosInscritos(){
-        return this.conteudosInscritos();
+        return this.conteudosInscritos();//concertar este erro
     }
     public void setConteudosInscritos(Set<Conteudo> conteudosInscritos){
         this.conteudosInscritos = conteudosInscritos;
