@@ -1,7 +1,5 @@
 package dominio;
 
-import java.lang.reflect.Constructor;
-
 public class Curso extends Conteudo{
 
     private int cargaHoraria;
