@@ -6,6 +6,9 @@ import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+*@author Jonatas
+*/ 
 public class BootCamp {
     private String nome;
     private String descricao;
@@ -15,10 +18,11 @@ public class BootCamp {
     private Set<Dev> devsInscritos = new HashSet<>();
     private Set<Conteudo> conteudos = new LinkedHashSet<>();
 
+    
     public String getNome() {
         return this.nome;
     }
-
+   
     public void setNome(String nome) {
         this.nome = nome;
     }

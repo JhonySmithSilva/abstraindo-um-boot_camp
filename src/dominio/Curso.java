@@ -1,5 +1,8 @@
 package dominio;
 
+/**
+*@author Jonatas
+*/ 
 public class Curso extends Conteudo{
 
     private int cargaHoraria;
@@ -15,6 +18,7 @@ public class Curso extends Conteudo{
         this.cargaHoraria = cargaHoraria;
     }
 
+    @Override
     public double calcularXp(){
         return XP_PADRAO * getCargaHoraria();
     }
