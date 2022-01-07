@@ -2,9 +2,12 @@ package dominio;
 
 import java.time.LocalDate;
 
+/**
+*@author Jonatas
+*/ 
 public class Mentoria extends Conteudo{
    
-    LocalDate dataDeCriacao;
+    private LocalDate dataDeCriacao;
     
     public Mentoria(){
 
@@ -17,6 +20,7 @@ public class Mentoria extends Conteudo{
         this.dataDeCriacao = data;
     }  
     
+    @Override
     public double calcularXp(){
         return XP_PADRAO + 20d;
     }

@@ -5,6 +5,9 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+*@author Jonatas
+*/ 
 public class Dev extends BootCamp {
 
     private String nome;
