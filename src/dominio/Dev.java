@@ -2,6 +2,7 @@ package dominio;
 
 import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public class Dev extends BootCamp {
@@ -21,21 +22,37 @@ public class Dev extends BootCamp {
         this.nome = nome;
     }
 
-    public void inscreverBootcamp(BootCamp bootcamp){}
+    public void inscreverBootcamp(BootCamp bootcamp){
+        this.conteudosInscritos.addAll(bootcamp.getConteudos());
+        bootcamp.getDevsInscritos().add(this);
+    }
 
-    public void progredir(){}
+    public void progredir(){
+        Optional<Conteudo> conteudo = this.conteudosInscritos.stream().findFirst();
+        if(conteudo.isPresent()) {
+            this.conteudosConcluidos.add(conteudo.get());
+            this.conteudosInscritos.remove(conteudo.get());
+        } else {
+            System.err.println(" você não está matriculado em nenhum conteudo! ");
+        }
+    }
 
-    public void calcularTotalXp(){}
+    public double calcularTotalXp(){
+        return this.conteudosConcluidos
+            .stream()
+            .mapToDouble(Conteudo::calcularXp)
+            .sum();
+    }
 
     public Set<Conteudo> getConteudosInscritos(){
-        return this.conteudosInscritos();//concertar este erro
+        return this.conteudosInscritos;
     }
     public void setConteudosInscritos(Set<Conteudo> conteudosInscritos){
         this.conteudosInscritos = conteudosInscritos;
     }
 
     public Set<Conteudo> getConteudosConcluidos(){
-        return this.conteudosConcluidos();
+        return this.conteudosConcluidos;
     }
     public void setConteudosConcluidos(Set<Conteudo> conteudosConcluidos){
         this.conteudosConcluidos = conteudosConcluidos;
