@@ -3,6 +3,8 @@ import dominio.Curso;
 import dominio.Mentoria;
 
 /**
+ * esta classe é responsavel por montar toda a estrutura do bootCamp
+ * de uma forma bem simples.
 *@author Jonatas
 */ 
 public class Main{
